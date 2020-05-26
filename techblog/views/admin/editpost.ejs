@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+      </head>
+    <body>
+        <div class="container">
+            <form action="/admin/post" method="POST"  enctype="multipart/form-data">
+                <div class="form-group">
+                  <label>Title</label>
+                  <input type="Text" class="form-control"placeholder="Title" name="title" value="<%= data.title %>">
+                </div>
+                
+                <div class="form-group">
+                    <label>Slug</label>
+                    <input type="Text" class="form-control"placeholder="slug" name="slug" value="<%= data.slug %>">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <div><textarea name="description" cols="100%" rows="5" ><%= data.description %></textarea></div>
+                </div>
+
+                <div class="form-group">
+                    <label>Post</label>
+                    <div></div><textarea name="editor1"><%= data.post %></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <input type="file" class="form-control" name="image" value="<%= data.image %>">
+                </div>
+                <div class="form-group">
+                    <label>Author</label>
+                    <input type="Text" class="form-control"placeholder="Author" name="author" value="<%= data.author %>">
+                </div>
+                <div class="button-group">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
+                        <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#" onclick="myfunc(event)">Apple</a></li>
+                          <li><a href="#"  onclick="myfunc(event)">Phone</a></li>
+                          <li><a href="#"  onclick="myfunc(event)">Laptop</a></li>
+                        </ul>
+                      </div>
+                      <br>
+                </div>
+                <input type="text" id="abc" class="form-control mb-2"  name="category" value="<%= data.category %>"readonly><br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+
+              </form>
+        </div>
+        
+                <script>
+                        CKEDITOR.replace( 'editor1' );
+                </script>
+                <script>
+                    var myarr = [];
+                    function myfunc(event){
+                        var target = event.target.innerHTML
+                        myarr.push(target)
+                        document.getElementById('abc').value = myarr 
+                    }  
+                </script>
+    </body>
+</html>

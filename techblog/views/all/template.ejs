@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+		<meta charset="UTF-8">
+	
+		<!-- Meta required for Bootstrap -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" /> -->
+		<title>Home</title>
+	
+		<!-- Fonts -->
+		<link rel="stylesheet" href="/fonts/Quattrocento/Quattrocento.css">
+		<link rel="stylesheet" href="/fonts/Quattrocento_Sans/Quattrocento_Sans.css">
+	
+		<!-- Icons -->
+		<link rel="stylesheet" href="/fonts/MaterialDesign/css/materialdesignicons.min.css">
+		<link rel="stylesheet" href="/fonts/Outicons/flaticon.css">
+	
+		<!-- Styles -->
+		<link rel="stylesheet" href="/libs/bootstrap-4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/libs/owl-carousel/owl.carousel.css">
+		<link rel="stylesheet" href="/libs/owl-carousel/owl.theme.css">
+	
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/responsive.css">
+	
+	
+</head>
+<body>
+	<!-- <div id="page-preloader"><span class="spinner"></span></div> -->
+	<div class="page-wraper">
+		<div class="full-search-wrap">
+			<div class="full-search container">
+				<div class="full-search__close pull-right animate"><span class="mdi mdi-close"></span></div>
+				<form action="http://yomac.dymix.us/" class="full-search__form">
+			        <input type="text" id="s-full" class="full-search__input" placeholder="Search"> 
+			        <input type="submit" hidden>
+					<p class="full-search__hint">Type in your search and press enter</p>
+				</form>
+			</div>
+		</div>
+
+		<!-- Header section start -->
+		<header class="page-header header-sticky">
+			<div class="container">
+				<%- include('../include/header'); %>
+				<div class="main-navigation__wrap">
+					<div class="main-navigation">
+						<ul class="nav justify-content-between">
+							<li class="nav-item menu-item-has-children">
+								<a href="/" class="nav-link">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="/news" class="nav-link">Tech News</a>
+							</li>
+							<li class="nav-item">
+								<a href="/apple" class="nav-link">Apple</a>
+							</li>
+							<li class="nav-item">
+								<a href="/phones" class="nav-link">Phone</a>
+							</li>
+							<li class="nav-item">
+								<a href="/laptops" class="nav-link">Laptops</a>
+							</li>
+							<li class="nav-item">
+								<a href="/gadgets" class="nav-link">Gadgets</a>
+							</li>
+							<li class="nav-item">
+								<a href="/contacts" class="nav-link">Contacts</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header section end -->
+
+		<!-- Page content section start -->	
+		<main class="page-content">
+			<!-- Page title section start -->
+			<div class="page-head post-head" style="background-image: url('/img/single-contain.jpg');">
+				<div class="container">
+					<div class="page-head__breadcrumb">
+						<ol class="breadcrumb">
+							<li><a href="/">home >> &nbsp;</a></li>							
+							<%onedata.category.forEach(row=>{%>
+								<a href="/articles/<%=row%>"><li class="active"><%=row%></li></span></a> &nbsp;
+							<%}) %>
+						</ol>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="page-head__title page-head__title_full"><%= onedata.title %></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Page title section end -->
+
+			<!-- New single section start -->
+			<div class="new-single">
+				<div class="container">
+					<div class="row row-extended">
+						<div class="col-lg-12">
+							<article class="post">
+
+								<div class="post__img text-center">
+									<img src="/uploads/<%=onedata.image%>" alt="">
+								</div>
+
+								<div class="post__content">
+									<%- onedata.post %>
+
+							</article>
+
+							<div class="new-single__footer">
+								<section class="post-tag">
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="post__tags">
+												<h2 class="h4">Tags</h2>
+												<div class="tag-cloud">
+													<%onedata.category.forEach(row=>{%>
+														<a href="/articles/<%=row%>"><span class="label label-default animate"><%=row%></span></a> &nbsp;
+													<%}) %>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+
+								<!-- <section class="post__navigation">
+									<div class="row"></div>
+								</section> -->
+								<!-- <section class="post__comments">
+									<h2 class="h4 section-title">3 comments</h2>
+									<ol class="comment-list">
+										<li class="comment-list__item">
+											<div class="comment__body">
+												<div class="comment__avatar">
+													<img src=" /img/comment1.jpg" alt="">
+												</div>
+												<div class="comment__content">
+													<div class="comment__author">Jacob Cross</div>
+													<div class="comment__date">Posted at 08:49am</div>
+													<div class="comment__text">The preservation of human life is the ultimate value, a pillar of ethics and the foundation of all morality. This held true in most cultures and societies throughout history.</div>
+												</div>
+
+												<div class="comment__reply">
+													<button type="button" class="btn btn-link animate">Reply</button>
+												</div>
+											</div>
+											<ol class="comment-list children">
+												<li class="comment-list__item">
+													<div class="comment__body">
+														<div class="comment__avatar">
+															<img src=" /img/comment2.jpg" alt="">
+														</div>
+														<div class="comment__content">
+															<div class="comment__author">Darrell Hardy</div>
+															<div class="comment__text">If you are an entrepreneur, you know that your success cannot depend on the opinions of others. Like the wind, opinions change.</div>
+														</div>
+													</div>
+												</li>
+											</ol>
+										</li>
+										<li class="comment-list__item">
+											<div class="comment__body">
+												<div class="comment__avatar">
+													<img src=" /img/comment3.jpg" alt="">
+												</div>
+												<div class="comment__content">
+													<div class="comment__author">Gavin Edwards</div>
+													<div class="comment__date">Posted at 12:51am</div>
+													<div class="comment__text">Be careful what you believe because that is what you will experience. Your belief system is a mechanism which is uniquely yours. It is powered by your desire and controlled by your thoughts and actions. In other words, your success is measured by the strength of your belief.</div>
+												</div>
+												<div class="comment__reply">
+													<button type="button" class="btn btn-link animate">Reply</button>
+												</div>
+											</div>
+										</li>
+									</ol>
+											<div class="comment__respond">
+										<h4 class="section-title">post a comment</h4>
+										<form class="comment-form" method="POST" action="/article/<%=onedata.slug%>">
+											<div class="form-group row form-row">
+												<div class="col-sm-6 form-col">
+													<input type="text" class="form-control" placeholder="Name *" name="name">
+												</div>
+												<div class="col-sm-6 form-col">
+													<input type="email" class="form-control" placeholder="E-mail *" name="email">
+												</div>
+											</div>
+											<div class="form-group">
+												<textarea rows="6" class="form-control" placeholder="Your Comment" name="comment"></textarea>
+											</div>
+											<div class="row">
+												<div class="col-md-4">
+													<input type="submit" class="btn btn-primary btn-submit animate" value="Post comment" />
+												</div>
+											</div>
+										</form>
+
+									</div> 
+								</section> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- News primary section end -->
+
+		</main>
+		<!-- Page content section end -->	
+
+		<!-- Footer section start -->
+		<%- include('../include/footer'); %>
+		<!-- Footer section end -->	
+
+		<!-- To top section start -->
+		<div id="to-top" class="page-to-top animate text-center"><span class="icon icon-left flaticon-up-arrow-sign">Page top</span></div>
+	</div>
+	<!-- Scripts -->
+
+	<script src="libs/jquery/jquery-2.2.3.min.js"></script>
+	<script src="libs/bootstrap-4.3.1/js/popper.min.js"></script>
+	<script src="libs/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+	<script src="libs/owl-carousel/owl.carousel.min.js"></script>
+	<script src="libs/isotope/imagesLoaded.min.js"></script>
+	<script src="libs/isotope/isotope.pkgd.min.js"></script>
+	<script src=" /js/common.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+
+	<!-- Meta required for Bootstrap -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+	<title>Home</title>
+
+	<!-- Fonts -->
+	<link rel="stylesheet" href="/fonts/Quattrocento/Quattrocento.css">
+	<link rel="stylesheet" href="/fonts/Quattrocento_Sans/Quattrocento_Sans.css">
+
+	<!-- Icons -->
+	<link rel="stylesheet" href="/fonts/MaterialDesign/css/materialdesignicons.min.css">
+	<link rel="stylesheet" href="/fonts/Outicons/flaticon.css">
+
+	<!-- Styles -->
+	<link rel="stylesheet" href="/libs/bootstrap-4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/libs/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="/libs/owl-carousel/owl.theme.css">
+
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/responsive.css">
+
+
+</head>
+<body>
+<!-- Header section start -->
+		<header class="page-header header-sticky">
+			<div class="container">
+				<%- include('../include/header'); %>
+				<div class="main-navigation__wrap">
+					<div class="main-navigation absolute">
+						<ul class="nav justify-content-between">
+							<li class="nav-item menu-item-has-children">
+								<a href="/" class="nav-link">Home</a>
+							</li>
+							<li class="nav-item">
+								<a href="/news" class="nav-link">Tech News</a>
+							</li>
+							<li class="nav-item">
+								<a href="/apple" class="nav-link">Apple</a>
+							</li>
+							<li class="nav-item">
+								<a href="/phones" class="nav-link">Phone</a>
+							</li>
+							<li class="nav-item">
+								<a href="/laptops" class="nav-link">Laptops</a>
+							</li>
+							<li class="nav-item">
+								<a href="/gadgets" class="nav-link">Gadgets</a>
+							</li>
+							<li class="nav-item">
+								<a href="/contacts" class="nav-link">Contacts</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- Header section end -->
+
+		<!-- Page content section start -->	
+		<main class="page-content">
+
+			<!-- Slider section start -->
+			<section class="hero-slider-section">
+				<div id="hero-slider" class="main-slider">
+					<div class="main-slider__item" style="background-image: url('/img/slide-4.jpg')">
+						<div class="container">
+							<div class="item__content">
+								<!-- <div class="cat-title"><a href="category-post.html">Photography</a></div> -->
+								<div class="main-slider__title"><a href="post-single_sidebar.html">Put Wings On Your<br> Dreams</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="main-slider__item" style="background-image: url('/img/slide-1.jpg')">
+						<div class="container">
+							<div class="item__content">
+								<!-- <div class="cat-title"><a href="category-post.html">Photography</a></div> -->
+								<div class="main-slider__title"><a href="post-single_sidebar.html">A Starter Guide To Self <br>Improvement</a></div>
+							</div>
+						</div>
+					</div>
+					<div class="main-slider__item" style="background-image: url('/img/slide-2.jpg')">
+						<div class="container">
+							<div class="item__content">
+								<!-- <div class="cat-title"><a href="category-post.html">Fashion</a></div> -->
+								<h1 class="main-slider__title"><a href="post-single_sidebar.html">Tips For Choosing The<br> Perfect Gloss For Your Lips</a></h1>
+							</div>
+						</div>
+					</div>
+					<div class="main-slider__item" style="background-image: url('/img/slide-3.jpg')">
+						<div class="container">
+							<div class="item__content">
+								<!-- <div class="cat-title"><a href="category-post.html">Photography</a></div> -->
+								<div class="main-slider__title"><a href="post-single_sidebar.html">American Standards<br> And European Culture</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Slider section start -->
+
+			<!-- News primary section start -->
+			<section class="section news-primary">
+				<div class="container">
+					<div class="row row-extended">
+						<div class="col-lg-8">
+							<div class="news-standart">
+								<% category.forEach(row=>{ %>
+									<div class="new-item">
+										<div class="new-item__wrap">
+											<div class="new-item__image">
+												<a href="/article/<%= row.slug%>"><img src="/uploads/<%=row.image%>" alt=""></a>
+											</div>
+											<div class="new-item__info">
+												<div class="h3 new-item__title"><a href="/article/<%= row.slug%>"><%= row.title%></a></div>
+												<ul class="new-item__meta d-flex align-items-center">
+													<li class="new-item__meta-author">
+														<a href="category-post.html"><span class="meta-author__img"><img src="/img/contain-18.jpg" alt=""></span><%= row.author %></a>
+													</li>
+													<li class="new-item__meta-cat"><% for(var i=0 ; i<row.category.length; i++){%><a href="/articles/<%=row.category[i]%>">
+														<%= row.category[i]%> &nbsp;
+													</a><%}%></li>
+													<li class="new-item__meta-time">2 hours ago</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								<%})  %>
+
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- News primary section end -->
+
+		</main>
+		<!-- Page content section end -->	
+
+		<!-- Footer section start -->
+		<%- include('../include/footer'); %>
+		<div id="to-top" class="page-to-top animate text-center"><span class="icon icon-left flaticon-up-arrow-sign">Page top</span></div>
+	</div>
+
+	<script src="/libs/jquery/jquery-2.2.3.min.js"></script>
+	<script src="/libs/bootstrap-4.3.1/js/popper.min.js"></script>
+	<script src="/libs/bootstrap-4.3.1/js/bootstrap.min.js"></script>
+	<script src="/libs/owl-carousel/owl.carousel.min.js"></script>
+	<script src="/libs/isotope/imagesLoaded.min.js"></script>
+	<script src="/libs/isotope/isotope.pkgd.min.js"></script>
+	<script src="/js/common.js"></script>
+</body>
+
+
+</html>

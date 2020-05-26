@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+          </head>
+    </head>
+    <body>
+        <div class="container">
+            <table class="table-striped responsive" style="width: 100%;">
+                <thead class=" ">
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Post</th>
+                    <th>Author</th>
+                    <th>Categories</th>
+                </thead>
+                <tbody>
+                    <% data.forEach(element =>{ %>
+                        <tr>
+                            <td><%= element.title %></td>
+                            <td><%= element.description %></td>
+                            <td>a</td>
+                            <td><%= element.author %></td>
+                            <td><%= element.category %></td>
+                            <td><a href="/admin/posts/<%=element.id%>">Edit</a></td>
+                            <td>Delete</td>
+                        </tr>
+                    <%})%>
+                </tbody>
+            </table>
+        </div>
+        
+    </body>
+</html>
